@@ -105,3 +105,10 @@ $router->get('/gamification', ['GamificationController', 'index']);
  */
 
 $router->dispatch();
+
+$router->get('/analytics', ['AnalyticsController', 'index']);
+
+require_once __DIR__ . '/../app/Controllers/EventStreamController.php';
+
+$router->get('/stream', ['EventStreamController', 'index']);
+

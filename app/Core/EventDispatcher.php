@@ -24,8 +24,9 @@ class EventDispatcher
      */
     public static function dispatch(object $event): void
     {
+         EventLogger::log(get_class($event), get_object_vars($event));
         $eventName = get_class($event);
-
+       
           if (!empty(self::$listeners[$eventName])) {
         foreach (self::$listeners[$eventName] as $listener) {
             $listener($event);
